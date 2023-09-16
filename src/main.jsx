@@ -8,7 +8,7 @@ import { StyleProvider } from "@ant-design/cssinjs";
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
 import { StateContextProvider } from "./context";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const token = {
   token: {
