@@ -95,7 +95,9 @@ const SignupForm = () => {
                 <Col span={24}>
                   <Form.Item
                     labelAlign="left"
-                    label={<label style={{ color: "White" }}>Email Address</label>}
+                    label={
+                      <label style={{ color: "White" }}>Email Address</label>
+                    }
                     name="email"
                     rules={[
                       { required: true, message: "This field is required." },
@@ -108,8 +110,10 @@ const SignupForm = () => {
               <Row gutter={24}>
                 <Col span={24}>
                   <Form.Item
-                    name="mobile_number"
-                  label={<label style={{ color: "White" }}>Mobile Number" </label>}
+                    name="mobile"
+                    label={
+                      <label style={{ color: "White" }}>Mobile Number" </label>
+                    }
                     labelAlign="left"
                     rules={[
                       {
@@ -117,10 +121,10 @@ const SignupForm = () => {
                         message: "Contact Number is required.",
                       },
                       {
-                        pattern: "^[0-9-+/s]{9,}$",
-                        min: 9,
-                        max: 9,
-                        message: "Please enter a minimum of 9 digits.",
+                        pattern: "^[0-9-+/s]{10,}$",
+                        min: 10,
+                        max: 10,
+                        message: "Please enter a minimum of 10 digits.",
                       },
                     ]}
                   >
@@ -132,10 +136,20 @@ const SignupForm = () => {
                 <Col span={24}>
                   <Form.Item
                     labelAlign="left"
-                    label={<label style={{ color: "White" }}>Create Your Password"</label>}
+                    label={
+                      <label style={{ color: "White" }}>
+                        Create Your Password"
+                      </label>
+                    }
                     name="password"
                     rules={[
                       { required: true, message: "This field is required." },
+                      {
+                        
+                        min: 8,
+                        max: 30,
+                        message: "Please enter a minimum of 8 digits.",
+                      },
                     ]}
                   >
                     <Input placeholder="Enter your password" />
@@ -153,7 +167,7 @@ const SignupForm = () => {
                       type="primary"
                       style={{
                         width: "62%",
-                        marginLeft:"31px",
+                        marginLeft: "31px",
                         backgroundColor: "rgb(39,195,119)",
                       }}
                       htmlType="submit"

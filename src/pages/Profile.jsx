@@ -9,16 +9,16 @@ import { useStateContext } from "../context";
 import { money } from "../assets";
 import { CustomButton, FormField, Loader } from "../components";
 import { checkIfImage } from "../utils";
+import { useQueryClient } from "@tanstack/react-query"
 import { useGetUserProfile, useUpdateUserProfile } from "../apis/profileApi";
-import { useQueryClient } from "@tanstack/react-query";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
   const [isLoading, setIsLoading] = useState(false);
 
   const { data: userData } = useGetUserProfile();
-  const update = useUpdateUserProfile()
+  const update = useUpdateUserProfile();
 
   console.log("oooooooooooooo", userData?.data?.data);
   const { createCampaign } = useStateContext();
@@ -49,18 +49,15 @@ const Profile = () => {
     setForm({ ...form, [fieldName]: e.target.value });
   };
 
-  const handleSubmit =  (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log("form", form);
     update.mutate(form, {
       onSuccess: (data) => {
-        message.success(data.data.message)
-        queryClient.invalidateQueries("user-details")
+        message.success(data.data.message);
+        queryClient.invalidateQueries("user-details");
       },
-    })
-
-
-    
+    });
   };
 
   return (

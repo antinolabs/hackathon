@@ -13,32 +13,34 @@ export const navlinksForUser = [
     name: "dashboard",
     imgUrl: dashboard,
     link: "/home",
+    label: "Dashboard",
   },
  
   {
     name: "payment",
     imgUrl: payment,
     link: "/payment",
-   
-    label:"Payment"
+
+    label: "Payment",
   },
-  
+
   {
     name: "profile",
     imgUrl: profile,
     link: "/profile",
-    label:"Profile"
+    label: "Profile",
   },
   {
     name: "logout",
     imgUrl: logout,
-    link: "/signin",
-    label:"Log-out",
+    link: "/",
+    label: "Log-out",
     onclick: (navigate) => {
       Cookies.remove("token");
       console.log("logout");
       navigate("/");
     },
+    isLogin: true,
   },
 ];
 

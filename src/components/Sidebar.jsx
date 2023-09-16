@@ -31,7 +31,7 @@ const Sidebar = () => {
   const [isActive, setIsActive] = useState("dashboard");
 
   return (
-    <div className="flex justify-between items-center flex-col sticky top-5 h-[93vh]">
+    <div className="flex justify-between items- flex-col sticky top-5 h-[93vh]">
       <Link to="/home">
         <Icon styles="w-[52px] h-[52px] bg-[#2c2f32]" imgUrl={logo} />
       </Link>
@@ -92,7 +92,6 @@ const Sidebar = () => {
           }
         </div>
 
-        <Icon styles="bg-[#1c1c24] shadow-secondary" imgUrl={sun} />
         
       </div>
     </div>

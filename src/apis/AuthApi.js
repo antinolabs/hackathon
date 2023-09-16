@@ -10,7 +10,7 @@ import useAxiosInstance from "../utils/useAxiosInstance"
 
 const loginFn = (credentials) => {
   try {
-    const data = axios.post(`  https://f8e1-103-175-181-228.ngrok-free.app/user/login`, credentials)
+    const data = axios.post(` ${process.env.baseurl}/user/login`, credentials)
     // Cookies.set("token", `${data.response.token}`, { secure: true })
     return data
   } catch (e) {
@@ -19,7 +19,7 @@ const loginFn = (credentials) => {
   }
 }
 const registerFn = async (credentials) => {
-  return await axios.post(` https://f8e1-103-175-181-228.ngrok-free.app/user/register`, credentials)
+  return await axios.post(`${process.env.baseurl}/user/register`, credentials);
 }
 
 const logoutFn = () => {
