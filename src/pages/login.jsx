@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import logo from "../assets/logo.svg";
 import donate from "../assets/donate.gif";
 
-const SigninForm = () => {
+const LoginForm = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -106,4 +106,4 @@ const SigninForm = () => {
   );
 };
 
-export default SigninForm;
+export default LoginForm;

@@ -14,16 +14,15 @@ const SignupForm = () => {
   };
 
   return (
-    <>
+    <div className="relative sm:-8 p-4 bg-[#333347]  min-h-screen flex flex-row justify-center items-center">
       <Card
         title=""
         style={{
-          margin: "100px",
-          width: 1000,
           height: 450,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          backgroundColor: "#333347",
         }}
         bordered={false}
         className="shadow-lg"
@@ -36,8 +35,8 @@ const SignupForm = () => {
             <Form
               name="basic"
               labelCol={{ span: 8 }}
-    wrapperCol={{ span: 16 }}
-    style={{ maxWidth: 600,textAlign:"initial" }}
+              wrapperCol={{ span: 16 }}
+              style={{ maxWidth: 600, textAlign: "initial" }}
               initialValues={{
                 remember: false,
               }}
@@ -51,7 +50,7 @@ const SignupForm = () => {
                     label="Full Name"
                     name="name"
                     labelAlign="left"
-                 
+                    style={{color:"#ffff"}}
                     rules={[
                       { required: true, message: "This field is required." },
                       {
@@ -72,18 +71,24 @@ const SignupForm = () => {
               </Row>
               <Row gutter={24}>
                 <Col span={24}>
-                  <Form.Item  labelAlign="left" label="Email Address" name="email"  rules={[
-                      { required: true, message: "This field is required." }]} >
+                  <Form.Item
+                    labelAlign="left"
+                    label="Email Address"
+                    name="email"
+                    rules={[
+                      { required: true, message: "This field is required." },
+                    ]}
+                  >
                     <Input placeholder="Enter Your Email" />
                   </Form.Item>
                 </Col>
               </Row>
               <Row gutter={24}>
-                <Col span={24} >
+                <Col span={24}>
                   <Form.Item
                     name="mobile_number"
                     label="Mobile Number"
-                  labelAlign="left"
+                    labelAlign="left"
                     rules={[
                       {
                         required: true,
@@ -97,17 +102,20 @@ const SignupForm = () => {
                       },
                     ]}
                   >
-                    <Input
-                      
-                      placeholder="Enter your Phone Number"
-                    />
+                    <Input placeholder="Enter your Phone Number" />
                   </Form.Item>
                 </Col>
               </Row>
               <Row gutter={24}>
                 <Col span={24}>
-                  <Form.Item  labelAlign="left" label="Create Your Password" name="password"  rules={[
-                      { required: true, message: "This field is required." }]} >
+                  <Form.Item
+                    labelAlign="left"
+                    label="Create Your Password"
+                    name="password"
+                    rules={[
+                      { required: true, message: "This field is required." },
+                    ]}
+                  >
                     <Input placeholder="Enter your password" />
                   </Form.Item>
                 </Col>
@@ -121,7 +129,10 @@ const SignupForm = () => {
                   >
                     <Button
                       type="primary"
-                      style={{ width: "100%" }}
+                      style={{
+                        width: "100%",
+                        backgroundColor: "rgb(39,195,119)",
+                      }}
                       htmlType="submit"
                     >
                       Sign In
@@ -133,7 +144,7 @@ const SignupForm = () => {
           </div>
         </div>
       </Card>
-    </>
+    </div>
   );
 };
 
