@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Card, Col, Form, Input, Row } from "antd";
+import { Button, Card, Col, Form, Input, Row, message } from "antd";
 import { DisplayCampaigns } from "../components";
 
 import { useNavigate } from "react-router-dom";
@@ -9,15 +9,18 @@ import { useStateContext } from "../context";
 import { money } from "../assets";
 import { CustomButton, FormField, Loader } from "../components";
 import { checkIfImage } from "../utils";
-import { useGetUserProfile } from "../apis/ProfileApi";
+import { useQueryClient } from "@tanstack/react-query";
+import { useGetUserProfile, useUpdateUserProfile } from "../apis/profileApi";
 
 const Profile = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const [isLoading, setIsLoading] = useState(false);
 
   const { data: userData } = useGetUserProfile();
+  const update = useUpdateUserProfile();
 
-  console.log("oooooooooooooo", userData);
+  console.log("oooooooooooooo", userData?.data?.data);
   const { createCampaign } = useStateContext();
   const [form, setForm] = useState({
     name: "",
@@ -32,26 +35,29 @@ const Profile = () => {
   useEffect(() => {
     if (userData) {
       setForm({
-        name: userData.data.data.name,
-        state: userData.data.data.state,
-        mobile: userData.data.data.mobile,
-        address: userData.data.data.address,
-        city: userData.data.data.city,
-        pincode: userData.data.data.pincode,
+        name: userData?.data?.data?.name,
+        state: userData?.data?.data?.state,
+        mobile: userData?.data?.data?.mobile,
+        address: userData?.data?.data?.address,
+        city: userData?.data?.data?.city,
+        pincode: userData?.data?.data?.pincode,
       });
     }
-  }, []);
+  }, [userData]);
 
   const handleFormFieldChange = (fieldName, e) => {
     setForm({ ...form, [fieldName]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log("form", form);
-
-
-    
+    update.mutate(form, {
+      onSuccess: (data) => {
+        message.success(data.data.message);
+        queryClient.invalidateQueries("user-details");
+      },
+    });
   };
 
   return (

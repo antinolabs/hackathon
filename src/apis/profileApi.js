@@ -4,13 +4,13 @@ import useAxiosInstance from "../utils/useAxiosInstance";
 
 const getUserProfile = async (id) => {
   return await useAxiosInstance.post(
-    ` https://f9c3-103-240-193-66.ngrok-free.app/user/get`
+    ` https://48a5-103-240-193-66.ngrok-free.app/user/get`
   );
 };
 
 const updateUserProfile = async (payload) => {
-  return await useAxiosInstance.post(
-    ` https://f9c3-103-240-193-66.ngrok-free.app/user/update`,
+  return await useAxiosInstance.patch(
+    ` https://48a5-103-240-193-66.ngrok-free.app/user/update`,
     payload
   );
 };
@@ -21,8 +21,7 @@ export const useGetUserProfile = () =>
     queryFn: () => getUserProfile(),
   });
 
-export const useUpdateUserProfile = () => {
+export const useUpdateUserProfile = () =>
   useMutation({
-    mutationFn: () => updateUserProfile(payload),
+    mutationFn: (payload) => updateUserProfile(payload),
   });
-};
