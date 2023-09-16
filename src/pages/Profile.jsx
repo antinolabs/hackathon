@@ -9,9 +9,14 @@ import { useStateContext } from "../context";
 import { money } from "../assets";
 import { CustomButton, FormField, Loader } from "../components";
 import { checkIfImage } from "../utils";
+import { useGetUserProfile } from '../apis/profileApi';
 const Profile = () => {
  const navigate = useNavigate();
  const [isLoading, setIsLoading] = useState(false);
+
+ const{data :userData} = useGetUserProfile()
+
+ console.log("oooooooooooooo",userData)
  const { createCampaign } = useStateContext();
  const [form, setForm] = useState({
    name: "",

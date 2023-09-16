@@ -5,6 +5,7 @@ import logo from "../assets/logo.svg";
 import donate from "../assets/donate.gif";
 import { useLogin } from "../apis/AuthApi";
 import Cookies from "js-cookie";
+import { Link } from "react-router-dom";
 
 const LoginForm = ({setLogin}) => {
   const login = useLogin()
@@ -16,7 +17,7 @@ const LoginForm = ({setLogin}) => {
     console.log(">>>>>>>>>",values)
     login.mutate(values, {
       onSuccess: (data) => {
-        Cookies.set("token", `${data.data.data.accessToken}`)
+        Cookies.set("token", `${data.data.data.token}`)
         console.log("success")
       setLogin(true)
       },
@@ -119,11 +120,13 @@ const LoginForm = ({setLogin}) => {
             </Form>
           </div>
         </div>
-      </Card>
-      <div className="flex justify-center items-center">
-        Don't have a Account?. Create one.
+      <div className="flex justify-center items-center text-white">
+      Don't have a Account?.
+        <Link to={"/signup"}>  Create one.</Link>
+       
         
       </div>
+      </Card>
     </div>
   );
 };
