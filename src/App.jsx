@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 import { Sidebar, Navbar } from "./components";
 import { CampaignDetails, CreateCampaign, Home, Profile } from "./pages";
@@ -9,23 +9,23 @@ import Cookies from "js-cookie";
 
 const App = () => {
   const [login, setLogin] = useState(false);
-  const token = Cookies.get("token")
-
-  useEffect(()=>{
-    if(token){
-      setLogin(true)
+  const token = Cookies.get("token");
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (token) {
+      setLogin(true);
+    } else {
+      setLogin(false);
+      navigate("/signin");
     }
-    else{
-      setLogin(false)
-    }
-  },[])
+  }, [token]);
   return (
     <>
       {!login ? (
         <>
           <Routes>
-            <Route path="/" element={<LoginForm setLogin = {setLogin} />} />
-            <Route path = "/signup" element={<SignupForm/>}/>
+            <Route path="/signin" element={<LoginForm setLogin={setLogin} />} />
+            <Route path="/signup" element={<SignupForm />} />
           </Routes>
         </>
       ) : (
