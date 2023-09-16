@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { Sidebar, Navbar } from "./components";
 import { CampaignDetails, CreateCampaign, Home, Profile } from "./pages";
 import SigninForm from "./pages/login";
+import SignupForm from "./pages/Signup";
 
 const App = () => {
   const [login, setLogin] = useState(false);
@@ -13,6 +14,7 @@ const App = () => {
         <>
           <Routes>
             <Route path="/" element={<SigninForm />} />
+            <Route path = "/signup" element={<SignupForm/>}/>
           </Routes>
         </>
       ) : (
