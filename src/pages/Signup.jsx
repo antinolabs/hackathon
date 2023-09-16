@@ -52,7 +52,7 @@ const SignupForm = () => {
         <div className="signInCon">
           <img src={logo} alt="logo" width={90} height={90} />
 
-          <div className="signinText">Register on Well-Fund</div>
+          <div className="signinText mb-4">Register on Well-Fund</div>
           <div className="loginFormCon">
             <Form
               name="basic"
@@ -69,7 +69,7 @@ const SignupForm = () => {
               <Row gutter={24}>
                 <Col span={24}>
                   <Form.Item
-                    label="Full Name"
+                    label={<label style={{ color: "White" }}>Full Name</label>}
                     name="name"
                     labelAlign="left"
                     style={{ color: "red" }}
@@ -95,7 +95,7 @@ const SignupForm = () => {
                 <Col span={24}>
                   <Form.Item
                     labelAlign="left"
-                    label="Email Address"
+                    label={<label style={{ color: "White" }}>Email Address</label>}
                     name="email"
                     rules={[
                       { required: true, message: "This field is required." },
@@ -109,7 +109,7 @@ const SignupForm = () => {
                 <Col span={24}>
                   <Form.Item
                     name="mobile_number"
-                    label="Mobile Number"
+                  label={<label style={{ color: "White" }}>Mobile Number" </label>}
                     labelAlign="left"
                     rules={[
                       {
@@ -132,7 +132,7 @@ const SignupForm = () => {
                 <Col span={24}>
                   <Form.Item
                     labelAlign="left"
-                    label="Create Your Password"
+                    label={<label style={{ color: "White" }}>Create Your Password"</label>}
                     name="password"
                     rules={[
                       { required: true, message: "This field is required." },
@@ -152,12 +152,13 @@ const SignupForm = () => {
                     <Button
                       type="primary"
                       style={{
-                        width: "100%",
+                        width: "62%",
+                        marginLeft:"31px",
                         backgroundColor: "rgb(39,195,119)",
                       }}
                       htmlType="submit"
                     >
-                      Sign In
+                      Sign Up
                     </Button>
                   </Form.Item>
                 </Col>

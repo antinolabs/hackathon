@@ -17,7 +17,7 @@ const App = () => {
       navigate("/home");
     } else {
       setLogin(false);
-      navigate("/signin");
+      navigate("/");
     }
   }, [token]);
   return (
@@ -25,7 +25,7 @@ const App = () => {
       {!login ? (
         <>
           <Routes>
-            <Route path="/signin" element={<LoginForm setLogin={setLogin} />} />
+            <Route path="/" element={<LoginForm setLogin={setLogin} />} />
             <Route path="/signup" element={<SignupForm />} />
           </Routes>
         </>
