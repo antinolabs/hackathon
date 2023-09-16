@@ -17,7 +17,7 @@ const LoginForm = ({setLogin}) => {
     console.log(">>>>>>>>>",values)
     login.mutate(values, {
       onSuccess: (data) => {
-        Cookies.set("token", `${data.data.data.token}`)
+        Cookies.set("token", `${data?.data?.data?.token}`)
         console.log("success")
       setLogin(true)
       },
