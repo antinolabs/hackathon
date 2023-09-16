@@ -1,14 +1,15 @@
 import React from "react";
 import { Button, Card, Checkbox, Form, Input } from "antd";
 import { useNavigate } from "react-router";
-// import logo from "../../assets/logo.svg";
+import logo from "../assets/logo.svg";
+import donate from "../assets/donate.gif";
 
 const SigninForm = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
   return (
-    <>
+    <div className="relative sm:-8 p-4 bg-[#333347]  min-h-screen flex flex-row justify-center">
       <Card
         title=""
         style={{
@@ -18,14 +19,15 @@ const SigninForm = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          backgroundColor: "#333347",
         }}
         bordered={false}
-        className="shadow-lg"
+        className=""
       >
         <div className="signInCon">
-          {/* <img src={logo} alt="logo" width={90} height={90} /> */}
+          <img src={logo} alt="logo" width={90} height={90} />
 
-          <div className="signinText">Sign In</div>
+          <div className="signinText text-white">Sign In</div>
           <div className="loginFormCon">
             <Form
               name="basic"
@@ -83,7 +85,7 @@ const SigninForm = () => {
               >
                 <Button
                   type="primary"
-                  style={{ width: "238px" }}
+                  style={{ width: "238px", backgroundColor: "rgb(39,195,119)" }}
                   htmlType="submit"
                 >
                   Sign In
@@ -93,7 +95,14 @@ const SigninForm = () => {
           </div>
         </div>
       </Card>
-    </>
+      {/* <div className="flex justify-center items-center">
+        <img
+          src={donate}
+          alt="logo"
+          style={{ width: "224px", height: "212px",opacity:"0.1" }}
+        />
+      </div> */}
+    </div>
   );
 };
 

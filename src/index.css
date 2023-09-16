@@ -9,6 +9,13 @@
     #000000 87.01%
   );
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.8);
+}
+
+/* Style the scrollbar */
 ::-webkit-scrollbar {
   width: 0.4rem;
   background-color: hsla(0, 0%, 0%, 0.1);
@@ -29,33 +36,408 @@
   border: none !important;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  filter: invert(0.8);
-}
 .ant-collapse > .ant-collapse-item > .ant-collapse-header :nth-child(2) {
   margin-left: 60px;
   margin-top: 5px;
 }
-.help-support-answers {
-  margin: 20px;
+.dashboard-con {
+  display: flex;
+  margin-top: 20px;
 }
-.help-support-answers .question {
-  font-weight: bold;
+.dashboard-con .first-section {
+  width: 65%;
+
+  display: flex;
+  flex-direction: column;
+  /* margin-left: -15px; */
 }
-.help-support-answers .answer {
+.dashboard-con .first-section .cards {
+  display: flex;
+
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+}
+.sectionTwo h3.number {
+  font-weight: bold !important;
+  font-size: 23px;
+}
+.dashboard-con .sectionTwo {
+  margin-left: -10px;
+}
+.sectionTwo p.percentage {
   margin-top: 10px;
 }
-button.yes {
-  border: 2px solid rgb(223, 217, 217);
-  box-shadow: 10px 10px 2px white;
-  margin: 10px;
-  width: 80px;
-  height: 35px;
+.dashboard-con .first-section .cards .cardBody .sectionOne p {
+  position: relative;
+  left: -10px;
 }
-button.no {
-  border: 2px solid rgb(223, 217, 217);
-  box-shadow: 10px 10px 5px white;
-  width: 80px;
-  height: 35px;
+.dashboard-con .first-section .cards .cardBody .sectionOne img {
+  position: relative;
+  right: -10px;
+}
+.tableTitleCon {
+  display: flex;
+  justify-content: space-between;
+}
+.chartHeader {
+  position: relative;
+  top: 7px;
+}
+.customerCon {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardBody .sectionOne {
+  display: flex;
+  position: relative;
+}
+.cardBody .sectionTwo {
+  display: flex;
+  justify-content: space-between;
+
+  position: relative;
+  top: 30px;
+}
+
+.dashboardTable ul.ant-pagination {
+  display: none !important;
+}
+.apexcharts-toolbar {
+  display: none !important;
+}
+.walletTwo {
+  position: relative;
+  bottom: 9px;
+}
+.wallet .cardBody {
+  display: flex;
+  justify-content: space-between;
+}
+.wallet .cardBody .sectionTwo {
+  position: relative;
+  top: 0px;
+  left: 15px;
+}
+.wallet .cardBody .sectionTwo span {
+  background: #ecf8e6;
+  position: relative;
+  padding: 7px 7px 0px 7px;
+
+  border-radius: 100px;
+  margin: 10px;
+  left: 10px;
+}
+
+.cashCardCon {
+  display: flex;
+
+  justify-content: space-between;
+}
+.cashCardCon .firstSection {
+  width: 40%;
+}
+.cashCardCon .secondSection {
+  width: 40%;
+  position: relative;
+  /* left: 17px; */
+}
+.cashCardCon .cardBody .sectionOne {
+  margin-top: -15px;
+}
+.cashCardCon .cardBody .sectionTwo {
+  margin-top: -20px;
+  margin-left: 5px;
+}
+.cashCardCon .cardBody .sectionTwo p {
+  font-size: 12px;
+  color: rgb(145, 140, 140);
+}
+.profile .cardBody {
+  display: flex;
+  justify-content: space-between;
+}
+.profile .cardBody .sectionTwo {
+  position: relative;
+  top: 0px;
+}
+.profileCardBody {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.profileCardBody .sectionOne {
+  font-size: 10px;
+  position: relative;
+  left: -20px;
+}
+.profileCardBody .sectionTwo {
+  position: relative;
+
+  text-align: right;
+}
+.profileCardBody .sectionOne .name {
+  font-size: 15px;
+}
+.profileCardBody .sectionOne .text {
+  display: inline;
+  margin-left: 15px;
+}
+.profileCardBody .sectionOne .ant-typography {
+  font-size: 12px;
+  margin-left: 50px;
+}
+.cardHeaderCon {
+  position: relative;
+  top: 7px;
+}
+.cardHeaderCon .cardBody {
+  display: flex;
+  justify-content: space-between;
+}
+.cardHeaderCon .cardBody .sectionTwo {
+  position: relative;
+  top: 0px;
+}
+.cardHeaderCon .cardBody .sectionTwo img {
+  height: 20px !important;
+}
+.profileCon {
+  height: 500px;
+  margin-top: 70px;
+}
+.profileCon .profile {
+  position: relative;
+  top: 0px;
+}
+.data {
+  display: f6ex;
+  justify-content: space-between;
+}
+.data img {
+  display: inline-block;
+  margin-left: 30px;
+}
+.ticketOverViewCon .pieChartText p {
+  /* margin: 30px !important; */
+}
+.tableTitleCon img {
+  height: 20px;
+}
+.tableCardTitle {
+  position: relative;
+  top: 11px;
+}
+.loginFormWrap {
+  background-image: url("./assets/bgtruck.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginFormCon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginFormWrap .ant-card {
+  border-radius: 20px;
+}
+.signInCon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+}
+.signInCon .signinText {
+  position: relative;
+  top: 20px;
+  font-weight: bold;
+}
+.signInCon .logo img {
+  background: rgb(219, 96, 96);
+  margin-top: 40px;
+}
+/* .loginFormCon .ant-form input {
+  margin-left: 50px;
+} */
+.loginFormCon {
+  margin-top: 30px;
+}
+.loginFormCon .ant-form .ant-form-item-control {
+  margin-left: 60px;
+}
+.generalDetailsCon {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(214, 209, 209);
+  padding-bottom: 50px;
+}
+.generalDetailsCon .sectionOne {
+  display: flex;
+  justify-content: space-between;
+}
+.generalDetailsCon .sectionOne p {
+  font-size: 15px;
+  font-weight: bold;
+}
+.generalDetailsCon .thirdSection {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.generalDetailsCon .thirdSection span {
+  color: rgb(161, 156, 156);
+}
+
+.generalDetailsCon .fourthSection {
+  display: flex;
+  margin-top: 30px;
+}
+.generalDetailsCon .fourthSection .addedOn {
+  margin-left: 150px;
+}
+.generalDetailsCon .fourthSection span {
+  color: rgb(161, 156, 156);
+}
+.bankDetailsCon {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.bankDetailsCon .sectionOne {
+  display: flex;
+  justify-content: space-between;
+}
+.bankDetailsCon .sectionOne p {
+  font-size: 15;
+  font-weight: bold;
+}
+.bankDetailsCon .thirdSection {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.bankDetailsCon .thirdSection span {
+  color: rgb(161, 156, 156);
+}
+
+.bankDetailsCon .fourthSection {
+  display: flex;
+  margin-top: 20px;
+}
+.bankDetailsCon .fourthSection span {
+  color: rgb(161, 156, 156);
+}
+.bankDetailsCon .fourthSection .ifscCode {
+  margin-left: 100px;
+}
+.agencyDetailsCon {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  border-bottom: 1px solid rgb(214, 209, 209);
+  padding-bottom: 50px;
+}
+.agencyDetailsCon .sectionOne {
+  display: flex;
+  justify-content: space-between;
+}
+.agencyDetailsCon .sectionOne button {
+  border: 1px solid rgb(194, 184, 184);
+  padding: 8px;
+}
+.agencyDetailsCon .sectionOne p {
+  font-size: 15;
+  font-weight: bold;
+}
+
+.detailsCon {
+  display: flex;
+  flex-direction: column;
+}
+.detailsCon .sectionOne {
+  display: flex;
+}
+.detailsCon .sectionOne .icon span {
+  margin-left: 10px;
+}
+.detailsCon .sectionOne span {
+  color: rgb(161, 156, 156);
+}
+.detailsCon .secondSection {
+  display: flex;
+  margin-top: 30px;
+}
+.detailsCon .secondSection span {
+  color: rgb(161, 156, 156);
+}
+.detailsCon .secondSection p {
+  font-weight: bold;
+}
+.detailsCon .secondSection .agencyAddress {
+  margin-left: 230px;
+}
+
+.detailsCon .sectionThree {
+  color: rgb(161, 156, 156);
+  margin-top: 20px;
+}
+.detailsCon .fourthSection {
+  display: flex;
+}
+.detailsCon .fourthSection img {
+  display: inline;
+}
+
+.detailsCon .fourthSection .parking {
+  margin-left: 30px;
+}
+.detailsCon .fourthSection .cash {
+  margin-left: 30px;
+}
+.detailsCon .fifthSection {
+  margin-top: 10px;
+  display: flex;
+}
+.detailsCon .fifthSection .ltr {
+  font-size: 10px;
+}
+.detailsCon .fifthSection .hr {
+  margin-left: 20px;
+  font-size: 10px;
+}
+
+.breadcrumbCon {
+  display: flex;
+  justify-content: space-between;
+}
+.breadcrumbCon button {
+  border: 1px solid rgb(211, 203, 203);
+  padding: 10px;
+  margin-left: 10px;
+  background-color: white;
+}
+
+ant-checkbox-group {
+  display: flex;
+  justify-content: space-between;
+}
+.absolute.flex.gap-2 {
+  margin: 0px 0px 100px 65px !important;
+}
+path#Tickets-background {
+  position: relative !important;
+  left: 100px !important;
 }
