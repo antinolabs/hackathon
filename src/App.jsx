@@ -7,7 +7,7 @@ import SigninForm from "./pages/login";
 import SignupForm from "./pages/Signup";
 
 const App = () => {
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
   return (
     <>
       {!login ? (
@@ -18,7 +18,7 @@ const App = () => {
           </Routes>
         </>
       ) : (
-        <div className="relative sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row">
+        <div className="relative sm:-8 p-4 bg-[#333347] min-h-screen flex flex-row">
           <div className="sm:flex hidden mr-10 relative">
             <Sidebar />
           </div>
