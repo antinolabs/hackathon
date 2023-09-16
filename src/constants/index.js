@@ -23,7 +23,7 @@ export const navlinks = [
   {
     name: "payment",
     imgUrl: payment,
-    link: "/",
+    link: "/payment",
    
     label:"Payment"
   },
