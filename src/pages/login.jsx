@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, Checkbox, Form, Input } from "antd";
 import { useNavigate } from "react-router";
-// import logo from "../../assets/logo.svg";
+import logo from "../assets/logo.svg";
 
 const SigninForm = () => {
   const onFinishFailed = (errorInfo) => {
@@ -23,7 +23,7 @@ const SigninForm = () => {
         className="shadow-lg"
       >
         <div className="signInCon">
-          {/* <img src={logo} alt="logo" width={90} height={90} /> */}
+          <img src={logo} alt="logo" width={90} height={90} />
 
           <div className="signinText">Sign In</div>
           <div className="loginFormCon">
