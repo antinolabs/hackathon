@@ -1,38 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { Sidebar, Navbar } from "./components";
+import { CampaignDetails, CreateCampaign, Home, Profile } from "./pages";
+import LoginForm from "./pages/login";
+import SignupForm from "./pages/Signup";
+import Cookies from "js-cookie";
+import Payment from "./pages/Payment";
 
+const App = () => {
+  const [login, setLogin] = useState(false);
+  const token = Cookies.get("token");
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (token) {
+      setLogin(true);
+      navigate("/home");
+    } else {
+      setLogin(false);
+      navigate("/");
+    }
+  }, [token]);
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      {!login ? (
+        <>
+          <Routes>
+            <Route path="/" element={<LoginForm setLogin={setLogin} />} />
+            <Route path="/signup" element={<SignupForm />} />
+          </Routes>
+        </>
+      ) : (
+        <div className="relative sm:-8 p-4 bg-[#333347] min-h-screen flex flex-row">
+          <div className="sm:flex hidden mr-10 relative">
+            <Sidebar />
+          </div>
 
+          <div className="flex-1 max-sm:w-full max-w-[1280px] mx-auto sm:pr-5">
+            <Navbar />
 
-      
-      <div className="card bg-black">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/create-campaign" element={<CreateCampaign />} />
+              <Route path="/payment" element ={<Payment/>}/>
+              <Route
+                path="/campaign-details/:id"
+                element={<CampaignDetails />}
+              />
+            </Routes>
+          </div>
+        </div>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
