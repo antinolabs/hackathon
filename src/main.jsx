@@ -3,6 +3,19 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ConfigProvider, message } from "antd";
+import { StyleProvider } from "@ant-design/cssinjs";
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+
+import { StateContextProvider } from "./context";
+import { BrowserRouter as Router } from "react-router-dom";
+
+const token = {
+  token: {
+    colorPrimary: "#d74f58",
+    borderRadius: 0,
+  },
+};
 
 function queryErrorHandler(error) {
   // error is type unknown because in js, anything can be an error (e.g. throw(5))
@@ -33,12 +46,18 @@ const queryClient = new QueryClient({
 });
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ConfigProvider theme={token} locale={enUS}>
-      <StyleProvider hashPriority="high">
-        <QueryClientProvider client={queryClient}>
-          <App />
-        </QueryClientProvider>
-      </StyleProvider>
-    </ConfigProvider>git 
+    <ThirdwebProvider desiredChainId={ChainId.Goerli}>
+      <Router>
+        <StateContextProvider>
+          <ConfigProvider theme={token}>
+            <StyleProvider hashPriority="high">
+              <QueryClientProvider client={queryClient}>
+                <App />
+              </QueryClientProvider>
+            </StyleProvider>
+          </ConfigProvider>
+        </StateContextProvider>
+      </Router>
+    </ThirdwebProvider>
   </React.StrictMode>
 );
