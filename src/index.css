@@ -277,6 +277,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   position: relative;
   top: 20px;
   font-weight: bold;
+  color: #fafafa;
 }
 .signInCon .logo img {
   background: rgb(219, 96, 96);

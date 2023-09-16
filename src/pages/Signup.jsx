@@ -50,7 +50,7 @@ const SignupForm = () => {
                     label="Full Name"
                     name="name"
                     labelAlign="left"
-                    style={{color:"#ffff"}}
+                    style={{ color: "red" }}
                     rules={[
                       { required: true, message: "This field is required." },
                       {

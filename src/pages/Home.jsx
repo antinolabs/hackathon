@@ -11,9 +11,9 @@ const Home = () => {
 
   const fetchCampaigns = async () => {
     setIsLoading(true);
-    // const data = await getCampaigns();
-    // setCampaigns(data);
-    // setIsLoading(false);
+    const data = await getCampaigns();
+    setCampaigns(data);
+    setIsLoading(false);
   }
 
   useEffect(() => {

@@ -13,9 +13,8 @@ const LoginForm = () => {
       <Card
         title=""
         style={{
-          margin: "100px",
           width: 370,
-          height: 450,
+
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
