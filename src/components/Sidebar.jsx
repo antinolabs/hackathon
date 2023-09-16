@@ -30,29 +30,44 @@ const Sidebar = () => {
   const [isActive, setIsActive] = useState("dashboard");
 
   return (
-    <div className="flex justify-between items-center flex-col sticky top-5 h-[93vh]">
+    <div className="flex justify-between items- flex-col sticky top-5 h-[93vh]">
       <Link to="/home">
         <Icon styles="w-[52px] h-[52px] bg-[#2c2f32]" imgUrl={logo} />
       </Link>
 
-      <div className="flex-1 flex flex-col justify-between items-center bg-[#1c1c24] rounded-[20px] w-[76px] py-4 mt-12">
-        <div className="flex flex-col justify-center items-center gap-3">
+      <div className="flex-1 flex flex-col justify-between items-start bg-[#1c1c24] rounded-[20px] w-[181px] py-4  mt-12">
+        <div className="flex flex-col justify-center items-start gap-3">
           {navlinks.map((link) => (
-            <Icon
-              key={link.name}
-              {...link}
-              isActive={isActive}
-              handleClick={() => {
+            <div
+              className="flex justify-between cursor-pointer w-[171px] items-center "
+              onClick={() => {
                 if (!link.disabled) {
                   setIsActive(link.name);
                   navigate(link.link);
                 }
                 if (link.isLogin) {
                   link.onclick(navigate);
-
                 }
               }}
-            />
+            >
+              <div className="p-2">
+                <p className="text-white">{link?.label}</p>
+              </div>
+              <Icon
+                handleClick={() => {
+                  if (!link.disabled) {
+                    setIsActive(link.name);
+                    navigate(link.link);
+                  }
+                  if (link.isLogin) {
+                    link.onclick(navigate);
+                  }
+                }}
+                key={link.name}
+                {...link}
+                isActive={isActive}
+              />
+            </div>
           ))}
         </div>
 
