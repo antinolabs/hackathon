@@ -14,6 +14,7 @@ const App = () => {
   useEffect(() => {
     if (token) {
       setLogin(true);
+      navigate("/home");
     } else {
       setLogin(false);
       navigate("/signin");
@@ -38,7 +39,7 @@ const App = () => {
             <Navbar />
 
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/create-campaign" element={<CreateCampaign />} />
               <Route
