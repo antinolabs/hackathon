@@ -2,16 +2,38 @@ import React from "react";
 import { Button, Card, Col, Form, Input, Row } from "antd";
 import logo from "../assets/logo.svg";
 import { countries } from "../utils/countries";
+import { useRegister } from "../apis/AuthApi";
+import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
+  const register = useRegister();
+  const navigate = useNavigate()
+
+  const onFinish = (values) => {
+    console.log(">>>>>>>>>",values)
+    register.mutate(values, {
+      onSuccess: (data) => {
+        navigate("/")
+    
+      },
+
+      onError: (error) => {
+        const errorConfig = {
+          key: "loginError",
+          content: error.response.data.message,
+        }
+        console.log(error.response.data.message)
+        // message.error(errorConfig)
+      },
+    })
+  }
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
-    // You can handle form submission here, e.g., send data to a server.
-  };
+
+
 
   return (
     <div className="relative sm:-8 p-4 bg-[#333347]  min-h-screen flex flex-row justify-center items-center">
