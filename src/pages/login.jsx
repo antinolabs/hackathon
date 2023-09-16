@@ -1,10 +1,36 @@
 import React from "react";
-import { Button, Card, Checkbox, Form, Input } from "antd";
+import { Button, Card, Checkbox, Form, Input , message, theme} from "antd";
 import { useNavigate } from "react-router";
 import logo from "../assets/logo.svg";
 import donate from "../assets/donate.gif";
+import { useLogin } from "../apis/AuthApi";
+import Cookies from "js-cookie";
 
-const LoginForm = () => {
+const LoginForm = ({setLogin}) => {
+  const login = useLogin()
+  const navigate = useNavigate()
+  const { useToken } = theme
+
+
+  const onFinish = (values) => {
+    console.log(">>>>>>>>>",values)
+    login.mutate(values, {
+      onSuccess: (data) => {
+        Cookies.set("token", `${data.data.data.accessToken}`)
+        console.log("success")
+      setLogin(true)
+      },
+
+      onError: (error) => {
+        const errorConfig = {
+          key: "loginError",
+          content: error.response.data.message,
+        }
+        console.log(error.response.data.message)
+        // message.error(errorConfig)
+      },
+    })
+  }
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -43,23 +69,23 @@ const LoginForm = () => {
               initialValues={{
                 remember: false,
               }}
-              //   onFinish={onFinish}
+                onFinish={onFinish}
               onFinishFailed={onFinishFailed}
               autoComplete="off"
             >
               <Form.Item
-                name="user_id"
+                name="email"
                 style={{ width: "350px" }}
                 rules={[
                   {
                     required: true,
                     message: "Please input your username!",
                   },
-                  {
-                    pattern: /^[A-Z]{5}-[A-Z]{2}\d{3}$/,
-                    message:
-                      "Please enter a valid input following the format: MSUSR-GY564",
-                  },
+                  // {
+                  //   pattern: /^[A-Z]{5}-[A-Z]{2}\d{3}$/,
+                  //   message:
+                  //     "Please enter a valid input following the format: MSUSR-GY564",
+                  // },
                 ]}
               >
                 <Input placeholder="User ID" allowClear />
@@ -95,13 +121,10 @@ const LoginForm = () => {
           </div>
         </div>
       </Card>
-      {/* <div className="flex justify-center items-center">
-        <img
-          src={donate}
-          alt="logo"
-          style={{ width: "224px", height: "212px",opacity:"0.1" }}
-        />
-      </div> */}
+      <div className="flex justify-center items-center">
+        Don't have a Account?. Create one.
+        
+      </div>
     </div>
   );
 };

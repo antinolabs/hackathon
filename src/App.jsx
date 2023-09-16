@@ -1,19 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { Sidebar, Navbar } from "./components";
 import { CampaignDetails, CreateCampaign, Home, Profile } from "./pages";
 import LoginForm from "./pages/login";
 import SignupForm from "./pages/Signup";
+import Cookies from "js-cookie";
 
 const App = () => {
   const [login, setLogin] = useState(false);
+  const token = Cookies.get("token")
+
+  useEffect(()=>{
+    if(token){
+      setLogin(true)
+    }
+    else{
+      setLogin(false)
+    }
+  },[])
   return (
     <>
       {!login ? (
         <>
           <Routes>
-            <Route path="/" element={<LoginForm />} />
+            <Route path="/" element={<LoginForm setLogin = {setLogin} />} />
             <Route path = "/signup" element={<SignupForm/>}/>
           </Routes>
         </>
@@ -27,7 +38,7 @@ const App = () => {
             <Navbar />
 
             <Routes>
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/create-campaign" element={<CreateCampaign />} />
               <Route
