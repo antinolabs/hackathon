@@ -22,7 +22,7 @@ useAxiosInstance.interceptors.response.use(
   (error) => {
     if (error.response.status === 401) {
       Cookies.remove("token")
-      redirect("/auth/login")
+      redirect("/")
     } else return Promise.reject(error)
   },
 )

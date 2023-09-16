@@ -5,6 +5,7 @@ import logo from "../assets/logo.svg";
 import donate from "../assets/donate.gif";
 import { useLogin } from "../apis/AuthApi";
 import Cookies from "js-cookie";
+import { Link } from "react-router-dom";
 
 const LoginForm = ({setLogin}) => {
   const login = useLogin()
@@ -16,7 +17,7 @@ const LoginForm = ({setLogin}) => {
     console.log(">>>>>>>>>",values)
     login.mutate(values, {
       onSuccess: (data) => {
-        Cookies.set("token", `${data.data.data.accessToken}`)
+        Cookies.set("token", `${data.data.data.token}`)
         console.log("success")
       setLogin(true)
       },
