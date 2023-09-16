@@ -4,9 +4,9 @@ import useAxiosInstance from "../utils/useAxiosInstance"
 
 
 const getOrganisationList = async()=>{
-    return useAxiosInstance.post(` https://f8e1-103-175-181-228.ngrok-free.app/organisation/get`
-
-    )
+    return useAxiosInstance.post(
+      `https://f8e1-103-175-181-228.ngrok-free.app/organisation/get`
+    );
 }
 
 export const useGetOrganisationList = ()=>

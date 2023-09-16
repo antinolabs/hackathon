@@ -16,6 +16,13 @@ const updateUserProfile = async (payload) => {
   );
 };
 
+const createOrder = async (payload) => {
+  return await useAxiosInstance.post(
+    ` https://f8e1-103-175-181-228.ngrok-free.app/transaction/create-order`,
+    payload
+  );
+};
+
   
 
   export const useGetUserProfile = () =>
@@ -30,4 +37,9 @@ const updateUserProfile = async (payload) => {
     useMutation({
       mutationFn:(payload)=>updateUserProfile(payload)
     })
+  
+     export const useCreateOrder = () =>
+       useMutation({
+         mutationFn: (payload) => createOrder(payload),
+       });
   
