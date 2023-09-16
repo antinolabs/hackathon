@@ -12,8 +12,7 @@ export const navlinks = [
   {
     name: "dashboard",
     imgUrl: dashboard,
-    link: "/",
-    label :"Dashboard"
+    link: "/home",
   },
   {
     name: "campaign",
@@ -28,13 +27,7 @@ export const navlinks = [
    
     label:"Payment"
   },
-  {
-    name: "withdraw",
-    imgUrl: withdraw,
-    link: "/",
-
-    label:"Withdraw"
-  },
+  
   {
     name: "profile",
     imgUrl: profile,
@@ -49,7 +42,7 @@ export const navlinks = [
     onclick: (navigate) => {
       Cookies.remove("token");
       console.log("logout");
-      navigate("/signin");
+      navigate("/");
     },
   },
 ];

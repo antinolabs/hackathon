@@ -14,9 +14,10 @@ const App = () => {
   useEffect(() => {
     if (token) {
       setLogin(true);
+      navigate("/home");
     } else {
       setLogin(false);
-      navigate("/signin");
+      navigate("/");
     }
   }, [token]);
   return (
@@ -24,7 +25,7 @@ const App = () => {
       {!login ? (
         <>
           <Routes>
-            <Route path="/signin" element={<LoginForm setLogin={setLogin} />} />
+            <Route path="/" element={<LoginForm setLogin={setLogin} />} />
             <Route path="/signup" element={<SignupForm />} />
           </Routes>
         </>
@@ -38,7 +39,7 @@ const App = () => {
             <Navbar />
 
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/create-campaign" element={<CreateCampaign />} />
               <Route

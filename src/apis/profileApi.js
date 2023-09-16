@@ -10,9 +10,22 @@ const getUserProfile = async (id) => {
   }
 
 
+  const updateUserProfile = async (payload) => {
+    return await useAxiosInstance.patch(
+      ` https://f9c3-103-240-193-66.ngrok-free.app/user/update`,payload
+    );
+  };
+
+
 
   export const useGetUserProfile = () =>
   useQuery({
     queryKey: ["user-details"],
     queryFn: () => getUserProfile(),
   })
+
+  export const useUpdateUserProfile = ()=>
+    useMutation({
+      mutationFn:(payload)=>updateUserProfile(payload)
+    })
+  

@@ -69,7 +69,7 @@ const LoginForm = ({setLogin}) => {
               initialValues={{
                 remember: false,
               }}
-                onFinish={onFinish}
+              onFinish={onFinish}
               onFinishFailed={onFinishFailed}
               autoComplete="off"
             >
@@ -120,12 +120,9 @@ const LoginForm = ({setLogin}) => {
             </Form>
           </div>
         </div>
-      <div className="flex justify-center items-center text-white">
-      Don't have a Account?.
-        <Link to={"/signup"}>  Create one.</Link>
-       
-        
-      </div>
+      <div className="flex justify-center items-center text-white cursor-pointer" onClick={()=>navigate("/signup")}>
+          Don't have a Account?. Create one.
+        </div>
       </Card>
     </div>
   );
