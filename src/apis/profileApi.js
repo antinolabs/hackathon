@@ -3,10 +3,11 @@ import axios, { Axios } from "axios";
 import useAxiosInstance from "../utils/useAxiosInstance";
 
 const getUserProfile = async (id) => {
-  return await useAxiosInstance.post(
-    ` https://48a5-103-240-193-66.ngrok-free.app/user/get`
-  );
-};
+    return await useAxiosInstance.post(
+      ` https://48a5-103-240-193-66.ngrok-free.app/user/get`,
+      
+    )
+  }
 
 const updateUserProfile = async (payload) => {
   return await useAxiosInstance.patch(
@@ -15,13 +16,18 @@ const updateUserProfile = async (payload) => {
   );
 };
 
-export const useGetUserProfile = () =>
+  
+
+  export const useGetUserProfile = () =>
   useQuery({
     queryKey: ["user-details"],
     queryFn: () => getUserProfile(),
   });
 
-export const useUpdateUserProfile = () =>
-  useMutation({
-    mutationFn: (payload) => updateUserProfile(payload),
-  });
+
+
+  export const useUpdateUserProfile = ()=>
+    useMutation({
+      mutationFn:(payload)=>updateUserProfile(payload)
+    })
+  
