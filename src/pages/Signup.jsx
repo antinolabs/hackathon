@@ -177,7 +177,11 @@ const SignupForm = () => {
                   </Form.Item>
                 </Col>
               </Row>
+              <div className="text-white">
+              Already have an account ? <span onClick={()=>navigate("/")} className="cursor-pointer"> Sign in !</span>
+            </div>
             </Form>
+           
           </div>
         </div>
       </Card>

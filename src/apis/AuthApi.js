@@ -7,19 +7,32 @@ import { Navigate, redirect, useNavigate } from "react-router"
 import useAxiosInstance from "../utils/useAxiosInstance"
 
 
+const baseURL = import.meta.env.VITE_LOCAL_API_URL
+
+
+
+
 
 const loginFn = (credentials) => {
+ 
   try {
-    const data = axios.post(`https://f8e1-103-175-181-228.ngrok-free.app/user/login`, credentials)
+    if(credentials.userType === "user"){
+      const data = axios.post(`${baseURL}/user/login`, credentials)
     // Cookies.set("token", `${data.response.token}`, { secure: true })
     return data
+    }else{
+      const data = axios.post(`${baseURL}/admin/login`, credentials)
+      // Cookies.set("token", `${data.response.token}`, { secure: true })
+      return data
+    }
+    
   } catch (e) {
     console.log(e)
     return e
   }
 }
 const registerFn = async (credentials) => {
-  return await axios.post(`https://f8e1-103-175-181-228.ngrok-free.app/user/register`, credentials);
+  return await axios.post(`${baseURL}/user/register`, credentials);
 }
 
 const logoutFn = () => {

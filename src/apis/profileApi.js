@@ -1,24 +1,26 @@
-import { useMutation, useQueries, useQuery } from "@tanstack/react-query";
-import axios, { Axios } from "axios";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import useAxiosInstance from "../utils/useAxiosInstance";
+
+const baseURL = import.meta.env.VITE_LOCAL_API_URL
+
 
 const getUserProfile = async (id) => {
     return await useAxiosInstance.post(
-      ` https://48a5-103-240-193-66.ngrok-free.app/user/get`,
+      `${baseURL}/user/get`,
       
     )
   }
 
 const updateUserProfile = async (payload) => {
   return await useAxiosInstance.patch(
-    ` https://48a5-103-240-193-66.ngrok-free.app/user/update`,
+    `${baseURL}/user/update`,
     payload
   );
 };
 
 const createOrder = async (payload) => {
   return await useAxiosInstance.post(
-    ` https://f8e1-103-175-181-228.ngrok-free.app/transaction/create-order`,
+    `${baseURL}/transaction/create-order`,
     payload
   );
 };

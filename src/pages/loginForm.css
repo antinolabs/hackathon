@@ -1,0 +1,12 @@
+/* Change the tab background color to white */
+.ant-tabs-tab {
+    /* background-color: white !important; */
+    color: #fff !important; /* Change the text color to black */
+  }
+  
+  /* Change the active tab background color to white */
+  .ant-tabs-tab-active {
+    /* background-color: white !important; */
+    color: #fff !important;
+  }
+  
