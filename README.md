@@ -1,8 +1,32 @@
-# React + Vite
+# hackathon
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Briefly describe your project here.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Dependencies
+
+Here are the dependencies required to run this project:
+
+- **@ant-design/icons:** ^5.2.6
+- **@tanstack/react-query:** ^4.35.3
+- **@thirdweb-dev/react:** ^3.14.41
+- **@thirdweb-dev/sdk:** ^3.10.60
+- **antd:** ^5.9.1
+- **ethers:** ^5.7.2
+- **js-cookie:** ^3.0.5
+- **react:** ^18.2.0
+- **react-dom:** ^18.2.0
+- **react-query-auth:** ^2.2.0
+- **react-router-dom:** ^6.16.0
+
+## Getting Started
+
+Follow these steps to get the project up and running on your local machine.
+
+start the project with "npm run dev"
+## MODULES 
+ - lOGIN
+ - SIGNUP
+ - DASHBOARD
+ - PROFILE 
+ - DONATION 

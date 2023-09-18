@@ -7,6 +7,8 @@ import LoginForm from "./pages/login";
 import SignupForm from "./pages/Signup";
 import Cookies from "js-cookie";
 import Payment from "./pages/Payment";
+import OngoingCampaing from "./pages/OngoingCampaing";
+import CompletedCampaign from "./pages/CompletedCampaign";
 
 const App = () => {
   const [login, setLogin] = useState(false);
@@ -43,6 +45,9 @@ const App = () => {
               <Route path="/home" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/create-campaign" element={<CreateCampaign />} />
+              <Route path="/ongoing-campaign" element={<OngoingCampaing />} />
+              <Route path="/completed-campaign" element={<CompletedCampaign/>}/>
+
               <Route path="/payment" element ={<Payment/>}/>
               <Route
                 path="/campaign-details/:id"

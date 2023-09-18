@@ -8,19 +8,14 @@ import {
   withdraw,
 } from "../assets";
 
-export const navlinks = [
+export const navlinksForUser = [
   {
     name: "dashboard",
     imgUrl: dashboard,
     link: "/home",
     label: "Dashboard",
   },
-  {
-    name: "campaign",
-    imgUrl: createCampaign,
-    link: "/create-campaign",
-    label: "Campaign",
-  },
+ 
   {
     name: "payment",
     imgUrl: payment,
@@ -48,3 +43,27 @@ export const navlinks = [
     isLogin: true,
   },
 ];
+
+export const navLinksForAdmin=[
+  {
+
+    name: "campaign",
+    imgUrl: createCampaign,
+    link: "/create-campaign",
+    label:" Create Campaign"
+  },
+  {
+
+    name: "campaign",
+    imgUrl: createCampaign,
+    link: "/ongoing-campaign",
+    label:"Ongoing Campaign"
+  },
+  {
+
+    name: "campaign",
+    imgUrl: createCampaign,
+    link: "/completed-campaign",
+    label:" Completed Campaign"
+  },
+]

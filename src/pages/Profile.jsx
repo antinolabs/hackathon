@@ -9,7 +9,7 @@ import { useStateContext } from "../context";
 import { money } from "../assets";
 import { CustomButton, FormField, Loader } from "../components";
 import { checkIfImage } from "../utils";
-import { useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query"
 import { useGetUserProfile, useUpdateUserProfile } from "../apis/profileApi";
 
 const Profile = () => {

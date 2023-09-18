@@ -25,6 +25,8 @@ export const routes = createBrowserRouter(
           <Route path="/profile" element={<Profile />} />
           <Route path="/payment" element ={<Payment/>}/>
           <Route path="/create-campaign" element={<CreateCampaign />} />
+          <Route path="/ongoing-campaign" element={<OngoingCampaing />} />
+          <Route path="/completed-campaign" element={<CompletedCampaign/>}/>
           <Route path="/campaign-details/:id" element={<CampaignDetails />} />
         </Routes>
       </div>
