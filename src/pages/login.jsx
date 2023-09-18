@@ -75,7 +75,7 @@ const LoginForm = ({setLogin}) => {
             >
               <Form.Item
                 name="email"
-                style={{ width: "350px" }}
+                style={{ width: "350px", borderRadius: "12px" }}
                 rules={[
                   {
                     required: true,
@@ -88,7 +88,11 @@ const LoginForm = ({setLogin}) => {
                   // },
                 ]}
               >
-                <Input placeholder="User ID" allowClear />
+                <Input
+                  placeholder="Email Id"
+                  allowClear
+                  style={{ borderRadius: "5px" }}
+                />
               </Form.Item>
 
               <Form.Item
@@ -100,7 +104,10 @@ const LoginForm = ({setLogin}) => {
                   },
                 ]}
               >
-                <Input.Password placeholder="Password" />
+                <Input.Password
+                  placeholder="Password"
+                  style={{ borderRadius: "5px" }}
+                />
               </Form.Item>
 
               <Form.Item
@@ -120,7 +127,10 @@ const LoginForm = ({setLogin}) => {
             </Form>
           </div>
         </div>
-      <div className="flex justify-center items-center text-white cursor-pointer" onClick={()=>navigate("/signup")}>
+        <div
+          className="flex justify-center items-center text-white cursor-pointer"
+          onClick={() => navigate("/signup")}
+        >
           Don't have a Account?. Create one.
         </div>
       </Card>
