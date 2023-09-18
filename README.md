@@ -24,3 +24,9 @@ Here are the dependencies required to run this project:
 Follow these steps to get the project up and running on your local machine.
 
 start the project with "npm run dev"
+## MODULES 
+ - lOGIN
+ - SIGNUP
+ - DASHBOARD
+ - PROFILE 
+ - DONATION 
