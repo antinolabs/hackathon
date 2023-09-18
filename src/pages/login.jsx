@@ -14,12 +14,12 @@ const LoginForm = ({setLogin}) => {
     {
       key: '1',
       label: 'Sign in as a User',
-      children: <UserSigninForm setLogin = {setLogin} />,
+      children: <UserSigninForm setLogin = {setLogin} userType = "user"/>,
     },
     {
       key: '2',
       label: 'Sign in as Admin ',
-      children: <AdminSigninForm setLogin={setLogin} />,
+      children: <AdminSigninForm setLogin={setLogin} userType = "admin"/>,
     },
   
   ];
@@ -47,84 +47,11 @@ const LoginForm = ({setLogin}) => {
 
           <div className="signinText text-white">Sign In</div>
           <div className="loginFormCon">
-            <Form
-              name="basic"
-              labelCol={{
-                span: 8,
-              }}
-              wrapperCol={{
-                span: 16,
-              }}
-              style={{
-                maxWidth: 600,
-              }}
-              initialValues={{
-                remember: false,
-              }}
-              onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
-              autoComplete="off"
-            >
-              <Form.Item
-                name="email"
-                style={{ width: "350px", borderRadius: "12px" }}
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your username!",
-                  },
-                  // {
-                  //   pattern: /^[A-Z]{5}-[A-Z]{2}\d{3}$/,
-                  //   message:
-                  //     "Please enter a valid input following the format: MSUSR-GY564",
-                  // },
-                ]}
-              >
-                <Input
-                  placeholder="Email Id"
-                  allowClear
-                  style={{ borderRadius: "5px" }}
-                />
-              </Form.Item>
+          <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
 
-              <Form.Item
-                name="password"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your password!",
-                  },
-                ]}
-              >
-                <Input.Password
-                  placeholder="Password"
-                  style={{ borderRadius: "5px" }}
-                />
-              </Form.Item>
-
-              <Form.Item
-                wrapperCol={{
-                  offset: 8,
-                  span: 16,
-                }}
-              >
-                <Button
-                  type="primary"
-                  style={{ width: "238px", backgroundColor: "rgb(39,195,119)" }}
-                  htmlType="submit"
-                >
-                  Sign In
-                </Button>
-              </Form.Item>
-            </Form>
           </div>
         </div>
-        <div
-          className="flex justify-center items-center text-white cursor-pointer"
-          onClick={() => navigate("/signup")}
-        >
-          Don't have a Account?. Create one.
-        </div>
+    
       </Card>
     </div>
   );
